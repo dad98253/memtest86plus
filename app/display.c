@@ -177,15 +177,20 @@ void display_init(void)
     set_background_colour(palette.footer_background);
     clear_screen_region(ROW_FOOTER, 0, ROW_FOOTER, SCREEN_WIDTH - 1);
     prints(ROW_FOOTER, 0, " <ESC> Exit  <F1> Configuration  <Space> Scroll Lock");
-    prints(ROW_FOOTER, 61, MT_VERSION "." GIT_HASH);
+#if defined (__loongarch_lp64)
+#define VERSTART 61
+#else	// loongarch
+#define VERSTART 62
+#endif	// loongarch
+    prints(ROW_FOOTER, VERSTART, MT_VERSION "." GIT_HASH);
 #if defined (__x86_64__)
-    prints(ROW_FOOTER, 71, ".x64");
+    prints(ROW_FOOTER, VERSTART + 10, ".x64");
 #elif defined (__i386__)
-    prints(ROW_FOOTER, 71, ".x32");
+    prints(ROW_FOOTER, VERSTART + 10, ".x32");
 #elif defined (__loongarch_lp64)
-    prints(ROW_FOOTER, 71, ".la64");
+    prints(ROW_FOOTER, VERSTART + 10, ".la64");
 #endif
-    prints(ROW_FOOTER, 76, ".jk");
+    prints(ROW_FOOTER, 77, ".jk");
 
     set_foreground_colour(palette.foreground);
     set_background_colour(palette.background);
