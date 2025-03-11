@@ -1,5 +1,12 @@
 # Memtest86+
 
+-------------------------------------------------------------------------
+NOTE: this is my personal fork of the official repsoitory. You probably
+do not want to use this version. You probably want to use the official
+repository located at https://github.com/memtest86plus/memtest86plus
+-------------------------------------------------------------------------
+
+
 Memtest86+ is a free, open-source, stand-alone memory tester for x86 and
 x86-64 architecture computers. It provides a much more thorough memory
 check than that provided by BIOS memory tests.
