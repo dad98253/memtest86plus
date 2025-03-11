@@ -178,9 +178,9 @@ void display_init(void)
     clear_screen_region(ROW_FOOTER, 0, ROW_FOOTER, SCREEN_WIDTH - 1);
     prints(ROW_FOOTER, 0, " <ESC> Exit  <F1> Configuration  <Space> Scroll Lock");
 #if defined (__loongarch_lp64)
-#define VERSTART 61
-#else	// loongarch
 #define VERSTART 62
+#else	// loongarch
+#define VERSTART 63
 #endif	// loongarch
     prints(ROW_FOOTER, VERSTART, MT_VERSION "." GIT_HASH);
 #if defined (__x86_64__)
