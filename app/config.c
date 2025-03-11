@@ -103,7 +103,7 @@ bool            enable_numa        = false;
 bool            enable_ecc_polling = false;
 
 bool            pause_at_start     = true;
-bool            dark_mode          = false;
+bool            dark_mode          = true;
 
 power_save_t    power_save         = POWER_SAVE_HIGH;
 
@@ -217,6 +217,8 @@ static void parse_option(const char *option, const char *params)
         }
     } else if (strncmp(option, "dark", 5) == 0) {
         dark_mode = true;
+    } else if (strncmp(option, "light", 6) == 0) {
+        dark_mode = false;
     } else if (strncmp(option, "reportmode", 11) == 0) {
         if (strncmp(params, "none", 5) == 0) {
             error_mode = ERROR_MODE_NONE;
